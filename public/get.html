@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CRUD</h1>
+        <a href="get.html">GET</a> 
+        <a href="post.html">POST</a> 
+        <a href="put.html">PUT</a> 
+        <a href="delete.html">DELETE</a>
+    </header>
+
+        <div class="login-container">
+        <form>
+       
+        <h1>Dados Cadastrados</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>CPF</th>
+            </tr>
+            <tbody id="tabela-corpo"></tbody>
+        </table>
+    </form>  
+        </div>
+   
+
+    <script>
+    
+          //GET
+          fetch(`pessoas`)
+        .then(response => response.json())
+        .then(data => {
+            const tabela = document.getElementById('tabela-corpo');
+            //Utilizado o loop ForEach para interar cada objeto no array retornado a API
+            data.forEach((objeto) => {
+                //Adicionado essa string de template ao conteudo HTML do corpo da tabela.
+                const linha = `<tr>
+                    <td>${objeto.id}</td>
+                    <td>${objeto.nome}</td>
+                    <td>${objeto.idade}</td>
+                    <td>${objeto.cpf}</td>
+                </tr>`;
+                tabela.innerHTML += linha;
+            })
+        })
+          
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <script>
+          function fazerLogin(){
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+          
+                //Função callback. Parâmetro find para procurar.
+                const pessoa =(email === "adm" && senha == "123"); 
+                    
+                    if (pessoa){
+                        window.location.href = "get.html";
+                    } else {
+                        alert("Pessoa não encontrada!" + " Tente: Email-adm  Senha-123");
+                    }
+        };
+    </script>
+</head>
+<body>
+
+  
+<header>
+  <h1>CRUD</h1>
+  <a href="login.html">Login</a>
+</header>
+
+
+    <br><br>
+    <main>
+        <div class="login-container">
+            <h1>Login</h1>
+            <form onsubmit="event.preventDefault(); fazerLogin()">
+                <label for="">E-mail:</label>
+                <input type="text"id="email" />
+                <br><br>
+                <label for="">Senha:</label>
+                <input type="password" id="senha" required />
+                <input type="submit" value="Entrar" id="btn"/>
+                <br/><br />
+            </form>
+        </div>
+    </main>
+  
+    
+</body>
+</html>
